@@ -17,11 +17,17 @@ export const authOptions = {
     async jwt({ token, account }: { token: JWT; account: Account | null }) {
       if (account) {
         token.accessToken = account.access_token;
+        token.idToken = account.id_token; // Füge id_token hinzu für Keycloak
       }
       return token;
     },
     async session({ session, token }: { session: Session; token: JWT }) {
-      (session as any).accessToken = token.accessToken;
+      if (token.accessToken) {
+        (session as any).accessToken = token.accessToken;
+      }
+      if (token.idToken) {
+        (session as any).idToken = token.idToken;
+      }
       return session;
     },
   },

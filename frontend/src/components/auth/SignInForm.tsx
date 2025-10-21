@@ -8,6 +8,12 @@ import { ChevronLeftIcon } from "@/icons";
 import React from "react";
 
 export default function SignInForm() {
+  const handleSignIn = () => {
+    signIn("keycloak", { callbackUrl: "/analytics" }).catch((error) => {
+      console.error("Login-Fehler:", error);
+    });
+  };
+
   return (
     <div className="flex flex-col flex-1 lg:w-1/2 w-full">
       <div className="w-full max-w-md sm:pt-10 mx-auto mb-5">
@@ -22,7 +28,7 @@ export default function SignInForm() {
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
         <div>
           <div className="mb-5 sm:mb-8">
-            <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
+            <h1 className="mb-2 font-semibold text-gray-700 text-title-sm dark:text-white/90 sm:text-title-md">
               Anmelden
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -30,11 +36,7 @@ export default function SignInForm() {
             </p>
           </div>
           <div>
-            <Button
-              onClick={() => signIn("keycloak", { callbackUrl: "/analytics" })}
-              className="w-full"
-              size="sm"
-            >
+            <Button onClick={handleSignIn} className="w-full" size="sm">
               Mit Keycloak anmelden
             </Button>
             <div className="mt-5">

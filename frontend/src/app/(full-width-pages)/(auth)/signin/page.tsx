@@ -2,10 +2,8 @@
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 import SignInForm from "@/components/auth/SignInForm";
 import { Metadata } from "next";
-import type { Session } from "next-auth";
 
 export const metadata: Metadata = {
   title: "OTSM Anmeldeseite | TailAdmin - Next.js Dashboard",
@@ -13,13 +11,14 @@ export const metadata: Metadata = {
 };
 
 export default async function SignIn() {
-  const session = await getServerSession(authOptions) as Session & { accessToken?: string };
+  const session = await getServerSession(authOptions);
 
-  // Wenn eingeloggt, weiterleiten zum Dashboard
+  // Debug-Logik: Prüfe, ob eine Session vorhanden ist
   if (session) {
-    redirect("/");
+    console.log("Vorhandene Session gefunden:", session);
+  } else {
+    console.log("Keine Session gefunden, zeige Login-Formular");
   }
 
-  // Rendern der Client-Komponente für den Login
   return <SignInForm />;
 }
