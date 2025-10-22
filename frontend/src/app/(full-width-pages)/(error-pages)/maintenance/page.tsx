@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Next.js Maintenance Page | TailAdmin - Next.js Dashboard Template",
+  title: "Next.js Maintenance Page | Organisation Technology and Service Management Fraework Template",
   description:
     "This is Next.js Maintenance page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
 };

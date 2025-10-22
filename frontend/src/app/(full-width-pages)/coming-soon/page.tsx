@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Next.js Coming Soon Page | TailAdmin - Next.js Dashboard Template",
+  title: "Next.js Coming Soon Page | Organisation Technology and Service Management Fraework Template",
   description:
     "This is Next.js Coming Soon page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
 };

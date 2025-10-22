@@ -3,7 +3,7 @@ import PageBreadcrumb from "@/components/common/PageBreadCrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js API Keys Page | TailAdmin - Next.js Dashboard Template",
+  title: "Next.js API Keys Page | Organisation Technology and Service Management Fraework Template",
   description: "This is Next.js API Keys Page TailAdmin Dashboard Template",
 };
 

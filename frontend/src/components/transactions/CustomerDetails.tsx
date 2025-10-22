@@ -1,3 +1,4 @@
+// frontens/stc/comonents/transactions/CustomerDetails.tsx
 import React from "react";
 
 export default function CustomerDetails() {

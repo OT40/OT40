@@ -1,0 +1,6 @@
+2025-10-22 15:59:18.048 CEST [62859] LOG:  redirecting log output to logging collector process
+2025-10-22 15:59:18.048 CEST [62859] HINT:  Future log output will appear in directory "log".
+2025-10-22 16:29:28.549 CEST [78229] LOG:  redirecting log output to logging collector process
+2025-10-22 16:29:28.549 CEST [78229] HINT:  Future log output will appear in directory "log".
+2025-10-22 16:29:43.547 CEST [78409] LOG:  redirecting log output to logging collector process
+2025-10-22 16:29:43.547 CEST [78409] HINT:  Future log output will appear in directory "log".

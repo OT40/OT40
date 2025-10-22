@@ -1,0 +1,12 @@
+- name: PostgreSQL-Setup für OTSM
+  hosts: localhost
+  tasks:
+    - name: Ensure PostgreSQL is installed
+      ansible.builtin.package:
+        name: postgresql
+        state: present
+    - name: Ensure PostgreSQL service is running
+      ansible.builtin.service:
+        name: postgresql
+        state: started
+        enabled: yes

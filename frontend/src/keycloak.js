@@ -1,15 +1,18 @@
-// src/keycloak.js: Keycloak-Instanz für OTSM-Frontend-Authentifizierung
+// src/keycloak.js: Keycloak-Instanz für OTSM-Frontend-Authentifizierung (Client-seitig)
 import Keycloak from 'keycloak-js';
 
-const keycloak = new Keycloak({
-  url: 'http://localhost:8080',
-  realm: 'otsm-realm',
-  clientId: 'react-admin-app',
-});
+let keycloak = null;
 
-// Initialisierung ohne automatischen Login
-keycloak.init({ checkLoginIframe: false }).catch((error) => {
-  console.error('Keycloak-Initialisierungsfehler:', error);
-});
+if (typeof window !== 'undefined') {
+  keycloak = new Keycloak({
+    url: 'http://localhost:8080',
+    realm: 'otsm-realm',
+    clientId: 'react-admin-app',
+  });
+
+  keycloak.init({ checkLoginIframe: false }).catch((error) => {
+    console.error('Keycloak-Initialisierungsfehler:', error);
+  });
+}
 
 export default keycloak;

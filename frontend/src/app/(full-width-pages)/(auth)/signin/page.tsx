@@ -6,7 +6,7 @@ import SignInForm from "@/components/auth/SignInForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "OTSM Anmeldeseite | TailAdmin - Next.js Dashboard",
+  title: "OTSM Anmeldeseite | Organisation Technology and Service Management Fraework",
   description: "Anmeldeseite für das OTSM Dashboard",
 };
 

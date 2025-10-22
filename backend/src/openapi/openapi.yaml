@@ -1,0 +1,13 @@
+openapi: 3.0.3
+info:
+  title: OTSM API
+  version: 1.0.0
+paths:
+  /api/users:
+    get:
+      summary: Liste aller Benutzer
+      responses:
+        '200':
+          description: Erfolgreiche Antwort
+components:
+  schemas: {}

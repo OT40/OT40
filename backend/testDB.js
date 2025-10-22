@@ -1,6 +1,10 @@
-// testDB.js: Testet die PostgreSQL-Verbindung für OTSM
+// testDB.js: Testet die PostgreSQL-Verbindung für OTSM-Backend
+const { Pool } = require('pg');
+require('dotenv').config();
 
-const pool = require('./src/db');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 async function testConnection() {
   try {
