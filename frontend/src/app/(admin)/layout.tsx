@@ -1,3 +1,5 @@
+// layout.tsx: Admin-Layout für OTSM mit Sidebar und Header.
+
 "use client";
 
 import { useSidebar } from "@/context/SidebarContext";
@@ -45,7 +47,7 @@ export default function AdminLayout({
       <Backdrop />
       {/* Main Content Area */}
       <div
-        className={`flex-1 transition-all  duration-300 ease-in-out ${mainContentMargin}`}
+        className={`flex-1 transition-all duration-300 ease-in-out ${mainContentMargin}`}
       >
         {/* Header */}
         <AppHeader />

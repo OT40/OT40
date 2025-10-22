@@ -1,25 +1,21 @@
-// app/layout.tsx: Root-Layout für OTSM-App, integriert Client-Provider-Wrapper
+// layout.tsx: Root-Layout für OTSM mit SessionProvider.
 
-import { Outfit } from "next/font/google";
-import ProviderWrapper from "@/components/ProviderWrapper";
-import "./globals.css";
-import "swiper/swiper-bundle.css";
-import "simplebar-react/dist/simplebar.min.css";
+import type { Metadata } from 'next';
+import ProviderWrapper from '@/components/ProviderWrapper';
+import './globals.css';
 
-const outfit = Outfit({
-  subsets: ["latin"],
-});
-
-export const metadata = {
-  title: "OTSM Admin Dashboard",
-  description: "Organizational Technological Service Management",
+export const metadata: Metadata = {
+  title: 'OTSM Dashboard',
+  description: 'Organisation Technology and Service Management Framework',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
-      <body className={`${outfit.className} dark:bg-gray-900`}>
-        <ProviderWrapper>{children}</ProviderWrapper>
+      <body>
+        <ProviderWrapper>
+          {children}
+        </ProviderWrapper>
       </body>
     </html>
   );
