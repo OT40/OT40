@@ -1,5 +1,4 @@
-// route.ts: NextAuth-Konfiguration für Keycloak-Integration in OTSM.
-
+// route.ts: NextAuth-Konfiguration für Keycloak-Integration in OTSM
 import NextAuth from 'next-auth';
 import KeycloakProvider from 'next-auth/providers/keycloak';
 import type { JWT } from 'next-auth/jwt';
@@ -20,6 +19,7 @@ declare module 'next-auth' {
 }
 
 const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET || 'your-secure-secret-key', // Füge secret hinzu
   providers: [
     KeycloakProvider({
       clientId: process.env.KEYCLOAK_ID || 'react-admin-app',
@@ -45,9 +45,8 @@ const authOptions = {
     signIn: '/signin',
     error: '/auth/error',
   },
-  debug: true, // Aktiviere Debug-Logs für NextAuth
+  debug: true,
 };
 
 const handler = NextAuth(authOptions);
-
 export { handler as GET, handler as POST };

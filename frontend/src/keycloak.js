@@ -1,6 +1,7 @@
 // src/keycloak.js: Keycloak-Instanz für OTSM-Frontend-Authentifizierung (Client-seitig)
 import Keycloak from 'keycloak-js';
 
+/** @type {Keycloak | null} */
 let keycloak = null;
 
 if (typeof window !== 'undefined') {
