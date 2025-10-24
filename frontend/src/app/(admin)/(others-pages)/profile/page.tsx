@@ -1,19 +1,38 @@
+"use client";
+
 // page.tsx: Geschützte Profilseite für OTSM.
 // Zeigt Benutzerinformationen nur für authentifizierte Benutzer an, geschützt durch Protected-Komponente.
 
-import type { Metadata } from "next";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSession } from "next-auth/react";
 import UserAddressCard from "@/components/user-profile/UserAddressCard";
 import UserInfoCard from "@/components/user-profile/UserInfoCard";
 import UserMetaCard from "@/components/user-profile/UserMetaCard";
 import Protected from "@/components/Protected";
 
-export const metadata: Metadata = {
-  title: "OTSM Profil | TailAdmin - Next.js Dashboard Template",
-  description: "Benutzerprofil in OTSM",
-};
-
 export default function Profile() {
+  const { data: session } = useSession();
+
+  // Debug: Session-Struktur ausgeben
+  useEffect(() => {
+    console.log('Session:', session);
+  }, [session]);
+
+  // Test-Button für Backend-API
+  const testProfile = async () => {
+    console.log('Test Profile API');
+    try {
+      const res = await fetch('http://localhost:5000/api/profile', {
+        headers: {
+          Authorization: `Bearer ${session?.accessToken || ''}`, // Wird nach Session-Ausgabe angepasst
+        },
+      });
+      console.log('Profile Response:', await res.json());
+    } catch (err) {
+      console.error('Fehler beim API-Aufruf:', err);
+    }
+  };
+
   return (
     <Protected>
       <div>
@@ -26,6 +45,9 @@ export default function Profile() {
             <UserInfoCard />
             <UserAddressCard />
           </div>
+          <button onClick={testProfile} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
+            Test API
+          </button>
         </div>
       </div>
     </Protected>
